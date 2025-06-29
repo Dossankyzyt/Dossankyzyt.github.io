@@ -2,56 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Enriching Wikidata: Tver's Rivers and Mayors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Modern Website - Tver Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Enriching Wikidata: Tver's Rivers and Mayors</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sections/topic.html">Topic</a></li>
-        <li><a href="sections/methodology.html">Methodology</a></li>
-        <li><a href="sections/steps.html">Steps</a></li>
-        <li><a href="sections/report.html">Report</a></li>
-        <li><a href="sections/challenges.html">Challenges</a></li>
-      </ul>
-    </nav>
+    <h1>Enriching Wikidata: Tver Case Study</h1>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#topic">Topic</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#report">Report</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <section>
+    <section id="home">
       <h2>Project Abstract</h2>
-      <p>
-        This project identifies and fills knowledge gaps in Wikidata related to the Russian city of 
-        <a href="https://www.wikidata.org/wiki/Q2288" target="_blank">Tver (Q2288)<a>, focusing on its 
-        geographic and political relationships. We enriched the graph by adding missing connections to 
-        rivers such as the <a href="https://www.wikidata.org/wiki/Q671890" target="_blank">Tvertsa</a> and 
-        <a href="https://www.wikidata.org/wiki/Q4467262" target="_blank">Tmaka</a>, as well as political 
-        leadership using the property 
-        <a href="https://www.wikidata.org/wiki/Property:P6" target="_blank">P6 (head of government)</a>.
-      </p>
+      <p>This project identifies and fills knowledge gaps in Wikidata related to the Russian city of <strong>Tver (Q2288)</strong>, focusing on its geographic and political relationships, including missing river connections and local government data.</p>
     </section>
 
-    <section>
-      <h2>Team Members</h2>
+    <section id="topic">
+      <h2>Rivers of Tver</h2>
+      <p>Tver is located at the confluence of the Volga, Tvertsa, and Tmaka rivers. Our research showed that Wikidata lacked links to Tvertsa (Q671890) and Tmaka (Q4467262) via property P206.</p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+      <p>Using SPARQL queries and LLMs, we identified missing data and generated RDF triples to enrich Wikidata. Both Gemini and ChatGPT were used for validation.</p>
+    </section>
+
+    <section id="report">
+      <h2>Outcomes</h2>
       <ul>
-        <li>👤 Eleonora Babaian</li>
-        <li>👤Tomiris Dossankyzy</li>
-      
+        <li>Improved geographic accuracy of Tver's Wikidata entry</li>
+        <li>Reusable method for identifying missing links (P206)</li>
+        <li>Supports downstream applications and open knowledge quality</li>
       </ul>
     </section>
-  </main>
 
-  <footer>
-    <p>
-      GitHub Repository: 
-      <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">
-        View Project on GitHub
-      </a>
-    </p>
-  </footer>
-</body>
-</html>
+    <section id="team">
+      <h2>Team Members</h2>
+      <p>👨 Eleonora Babaian<br>
+         👨 Tomiris Dossankyzy</p>
+    </section>
+  </main>
