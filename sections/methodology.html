@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Methodology – Enriching Wikidata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    header {
+      background-color: #e0e0e0;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    footer {
+      background-color: #e0e0e0;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Methodology</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="topic.html">Topic</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="steps.html">Steps</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>How We Identified the Gaps</h2>
+      <p>
+        Our project began by recognizing that structured data platforms like Wikidata often contain
+        incomplete or inconsistent representations of real-world entities. Specifically, we focused
+        on the city of <a href="https://www.wikidata.org/wiki/Q2288" target="_blank">Tver</a>, where key geographic
+        and political details (like rivers and mayors) were missing or incomplete.
+      </p>
+    </section>
+
+    <section>
+      <h2>General Methodology</h2>
+      <p>
+        We applied a systematic approach to detect and enrich data gaps in Wikidata:
+        <ul>
+          <li>🔍 Used SPARQL queries to check which entities were linked to Tver.</li>
+          <li>💬 Prompted LLMs (ChatGPT and Gemini) to verify missing rivers and mayors.</li>
+          <li>🔗 Located the correct QIDs of rivers (e.g., Tvertsa: Q671890, Tmaka: Q4467262).</li>
+          <li>📊 Generated RDF triples to propose new structured entries.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools Used</h2>
+      <ul>
+        <li>🗺️ <strong>Wikidata</strong>: Structured knowledge graph where data was queried and enriched.</li>
+        <li>🔎 <strong>SPARQL</strong>: For retrieving and validating links between entities.</li>
+        <li>🤖 <strong>Large Language Models (LLMs)</strong>: ChatGPT and Gemini to identify omissions and generate data suggestions.</li>
+        <li>🧠 <strong>Zero-shot prompting</strong>: Used for generating RDF triples and identifying missing civic/geographic data.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      GitHub Repository:
+      <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">
+        View Project on GitHub
+      </a>
+    </p>
+  </footer>
+</body>
+</html>
