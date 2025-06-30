@@ -245,6 +245,117 @@
 </ul>
 
 <p>Each entry followed the same RDF structure using <code>P39</code> and <code>P6</code> properties, allowing for structured enrichment of Wikidata.</p>
+<h2>🏛️ RDF Triples for Mayors of Tver</h2>
+
+<h3>1. Alexander Belousov (1991–2003)</h3>
+<pre><code>@prefix wd: &lt;http://www.wikidata.org/entity/&gt; .
+@prefix wdt: &lt;http://www.wikidata.org/prop/direct/&gt; .
+@prefix p: &lt;http://www.wikidata.org/prop/&gt; .
+@prefix ps: &lt;http://www.wikidata.org/prop/statement/&gt; .
+@prefix pq: &lt;http://www.wikidata.org/prop/qualifier/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+wd:QBEL p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "1991-01-01"^^xsd:date ;
+  pq:P582 "2003-04-01"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QBEL ;
+  pq:P580 "1991-01-01"^^xsd:date ;
+  pq:P582 "2003-04-01"^^xsd:date
+] .
+</code></pre>
+
+<h3>2. Oleg Lebedev (2001–2008)</h3>
+<pre><code>wd:QLEB p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2001-07-01"^^xsd:date ;
+  pq:P582 "2008-06-30"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QLEB ;
+  pq:P580 "2001-07-01"^^xsd:date ;
+  pq:P582 "2008-06-30"^^xsd:date
+] .
+</code></pre>
+
+<h3>3. Vladimir Babichev (2009 – ceremonial)</h3>
+<pre><code>wd:QBAB p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2009-03-01"^^xsd:date ;
+  pq:P582 "2009-05-01"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QBAB ;
+  pq:P580 "2009-03-01"^^xsd:date ;
+  pq:P582 "2009-05-01"^^xsd:date
+] .
+</code></pre>
+
+<h3>4. Vasily Toloko (2009–2011)</h3>
+<pre><code>wd:QTOLO p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2009-05-01"^^xsd:date ;
+  pq:P582 "2011-12-27"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QTOLO ;
+  pq:P580 "2009-05-01"^^xsd:date ;
+  pq:P582 "2011-12-27"^^xsd:date
+] .
+</code></pre>
+
+<h3>5. Valery Pavlov (2012–2014)</h3>
+<pre><code>wd:QPAVL p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2012-03-29"^^xsd:date ;
+  pq:P582 "2014-05-28"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QPAVL ;
+  pq:P580 "2012-03-29"^^xsd:date ;
+  pq:P582 "2014-05-28"^^xsd:date
+] .
+</code></pre>
+
+<h3>6. Yury Timofeev (2014–2016)</h3>
+<pre><code>wd:QTIMO p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2014-05-28"^^xsd:date ;
+  pq:P582 "2016-09-22"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QTIMO ;
+  pq:P580 "2014-05-28"^^xsd:date ;
+  pq:P582 "2016-09-22"^^xsd:date
+] .
+</code></pre>
+
+<h3>7. Alexey Ogonkov (2017–present)</h3>
+<pre><code>wd:QOGON p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "2017-11-02"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QOGON ;
+  pq:P580 "2017-11-02"^^xsd:date
+] .
+</code></pre>
 
 <p>🔗 Gemini Share: <a href="https://gemini.google.com/share/c22eba7d743b" target="_blank">View Prompt</a></p>
 
