@@ -193,8 +193,8 @@
 <p>SPARQL Queries: we crafted a SPARQL query containing DISTINCT, OPTIONAL, UNION, FILTER, ORDER BY, LIMIT to extract names of mayors of Tver and start and end dates if their terms.</p>
     <img src="sparql1.png" alt="query using DISTINCT, OPTIONAL, UNION, FILTER, ORDER BY, LIMIT" width="500" />
 <ul>
-  <li><a href="https://w.wiki/EaDc" target="_blank">Query 1</a></li>
-  <li><a href="https://w.wiki/EaDf" target="_blank">Query 2</a></li>
+  <li><a href="https://w.wiki/EaDc" target="_blank">Query</a></li>
+  <li><a href="https://w.wiki/EaDf" target="_blank">Result</a></li>
 </ul>
 
 <h3>✅ Why this query works well:</h3>
@@ -215,6 +215,10 @@
   <li><strong>ChatGPT:</strong> Identified 1991</li>
   <li><strong>Gemini:</strong> Identified 1991 + provided historical background</li>
 </ul>
+ <p>Both ChatGPT and Gemini returned the same result(1991), the year when the modern day concept of a mayor appeared in Tver, meanwhile Gemini’s respose also contained some historical backround.<p>
+
+We used LLM and two-shot prompting technique to find the missing information about mayors and cover the gap
+
 
 <h2>Generated RDF Triples for Missing Data</h2>
 <p>Using two-shot prompting, we asked LLMs to generate missing RDF data for Tver's leadership. Here’s a sample:</p>
