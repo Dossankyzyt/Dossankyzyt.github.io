@@ -9,14 +9,14 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #fefefe;
+      background-color: #fafafa;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       background-color: #e0e0e0;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
     }
 
@@ -24,9 +24,9 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.2rem;
       padding: 0;
-      margin: 1rem 0;
+      margin: 1rem 0 0 0;
     }
 
     nav a {
@@ -38,19 +38,26 @@
     main {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
     }
 
     footer {
       background-color: #e0e0e0;
       padding: 1rem;
       text-align: center;
-      margin-top: 2rem;
-    }
-
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.3rem;
     }
   </style>
 </head>
@@ -71,35 +78,72 @@
 
   <main>
     <section>
-      <h2>How We Identified the Gaps</h2>
+      <h2>🧩 Gap Identification</h2>
       <p>
-        Our project began by recognizing that structured data platforms like Wikidata often contain
-        incomplete or inconsistent representations of real-world entities. Specifically, we focused
-        on the city of <a href="https://www.wikidata.org/wiki/Q2288" target="_blank">Tver</a>, where key geographic
-        and political details (like rivers and mayors) were missing or incomplete.
+        Our project began with the observation that Wikidata, while structured and community-driven, often lacks complete geographic and civic connections. In the case of 
+        <a href="https://www.wikidata.org/wiki/Q2288" target="_blank">Tver (Q2288)</a>, we identified two key gaps:
       </p>
-    </section>
-
-    <section>
-      <h2>General Methodology</h2>
-      <p>
-        We applied a systematic approach to detect and enrich data gaps in Wikidata:
-        <ul>
-          <li>🔍 Used SPARQL queries to check which entities were linked to Tver.</li>
-          <li>💬 Prompted LLMs (ChatGPT and Gemini) to verify missing rivers and mayors.</li>
-          <li>🔗 Located the correct QIDs of rivers (e.g., Tvertsa: Q671890, Tmaka: Q4467262).</li>
-          <li>📊 Generated RDF triples to propose new structured entries.</li>
-        </ul>
-      </p>
-    </section>
-
-    <section>
-      <h2>Tools Used</h2>
       <ul>
-        <li>🗺️ <strong>Wikidata</strong>: Structured knowledge graph where data was queried and enriched.</li>
-        <li>🔎 <strong>SPARQL</strong>: For retrieving and validating links between entities.</li>
-        <li>🤖 <strong>Large Language Models (LLMs)</strong>: ChatGPT and Gemini to identify omissions and generate data suggestions.</li>
-        <li>🧠 <strong>Zero-shot prompting</strong>: Used for generating RDF triples and identifying missing civic/geographic data.</li>
+        <li><strong>Missing river connections:</strong> Tver lies on three rivers (Volga, Tvertsa, Tmaka), but only the Volga is linked via <code>P206</code>.</li>
+        <li><strong>Incomplete mayoral data:</strong> Mayors were either missing or inconsistently represented via <code>P6</code> ("head of government") or <code>P39</code> ("position held").</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Methodology</h2>
+
+      <h3>🔍 1. Gap Detection in Wikidata</h3>
+      <p>We began by identifying gaps in Tver’s Wikidata entry, focusing on:</p>
+      <ul>
+        <li>Missing rivers that the city borders</li>
+        <li>Incomplete mayoral records</li>
+      </ul>
+      <p>SPARQL queries were used to examine relationships involving properties:</p>
+      <ul>
+        <li><code>P206</code>: located in or next to body of water</li>
+        <li><code>P6</code> / <code>P39</code>: head of government / position held</li>
+      </ul>
+
+      <h3>🧠 2. Validation with Large Language Models (LLMs)</h3>
+      <p>We used <strong>ChatGPT</strong> and <strong>Gemini</strong> to:</p>
+      <ul>
+        <li>Cross-check which rivers flow through Tver</li>
+        <li>Identify potential mayors of Tver</li>
+        <li>Generate RDF triples to enrich Wikidata</li>
+      </ul>
+      <p>LLM outputs were validated against Wikidata and corrected (e.g., QID fixes).</p>
+
+      <h3>🗂 3. Entity Verification</h3>
+      <ul>
+        <li>Tvertsa River → <a href="https://www.wikidata.org/wiki/Q671890" target="_blank">Q671890</a></li>
+        <li>Tmaka River → <a href="https://www.wikidata.org/wiki/Q4467262" target="_blank">Q4467262</a></li>
+      </ul>
+      <p>These rivers exist in Wikidata but were not linked to Tver.</p>
+
+      <h3>🧱 4. RDF Triple Construction</h3>
+      <p>LLMs generated RDF-style triples, such as:</p>
+      <ul>
+        <li>Tver (Q2288) → P206 → Tvertsa River (Q671890)</li>
+        <li>Tver (Q2288) → P206 → Tmaka River (Q4467262)</li>
+      </ul>
+      <p>We also reviewed entries related to <code>P6</code> and <code>P39</code> for mayoral data.</p>
+
+      <h3>🔄 5. Reproducibility</h3>
+      <p>Our method is modular and scalable. It can be reused for:</p>
+      <ul>
+        <li>Other cities</li>
+        <li>Different civic or geographic gaps</li>
+        <li>Automated tools via bots using SPARQL and LLM prompts</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧰 Tools Used</h2>
+      <ul>
+        <li><strong>Wikidata SPARQL Endpoint</strong>: For structured data querying</li>
+        <li><strong>ChatGPT & Gemini</strong>: For RDF generation and gap detection</li>
+        <li><strong>Wikidata.org</strong>: For property/QID validation</li>
+        <li><strong>GitHub + TextEdit</strong>: For building and publishing the website</li>
       </ul>
     </section>
   </main>
