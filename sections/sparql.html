@@ -181,6 +181,74 @@
         <li>Contributed to the broader goal of open knowledge quality</li>
       </ul>
     </section>
+
+    <h3>🧪 Case Study 2: Political Leadership of Tver</h3>
+
+<h4>Retrieving Tver's Political Leadership</h4>
+<p>To identify individuals who have served as mayor or in equivalent political roles for Tver, we used a SPARQL query that covers two data modeling patterns in Wikidata:</p>
+<ol>
+  <li>Direct <strong>head of government (P6)</strong> relationships linked to Tver.</li>
+  <li><strong>Position held (P39)</strong> relationships where the role is a subclass of mayor (Q30185) and restricted to the location Tver (P642).</li>
+</ol>
+<p>SPARQL Queries:</p>
+<ul>
+  <li><a href="https://w.wiki/EaDc" target="_blank">Query 1</a></li>
+  <li><a href="https://w.wiki/EaDf" target="_blank">Query 2</a></li>
+</ul>
+
+<h3>✅ Why this query works well:</h3>
+<ul>
+  <li>Handles multiple modeling styles (Wikidata isn’t always consistent).</li>
+  <li>Uses UNION to combine both modeling approaches.</li>
+  <li>Retrieves term dates if available.</li>
+  <li>Returns clean, human-readable names via <code>?personLabel</code>.</li>
+</ul>
+
+<h3>🗂 Example Use:</h3>
+<p>This allowed us to extract leadership data and cross-check for inconsistencies or gaps in representation — a key part of ensuring that political data about Tver is complete and accurate.</p>
+<p><strong>Observation:</strong> Only two mayors — Alexander Korzin and Alexey Ogonkov — were listed, covering only from 2012 to the present, though the role has existed since 1991.</p>
+
+<h2>LLM Analysis</h2>
+<p>We used LLMs to check when the title of "mayor" appeared in Tver:</p>
+<ul>
+  <li><strong>ChatGPT:</strong> Identified 1991</li>
+  <li><strong>Gemini:</strong> Identified 1991 + provided historical background</li>
+</ul>
+
+<h2>Generated RDF Triples for Missing Data</h2>
+<p>Using two-shot prompting, we asked LLMs to generate missing RDF data for Tver's leadership. Here’s a sample:</p>
+
+<div class="code">
+# Alexander Belousov held the position of mayor of Tver from 1991 to 2003
+wd:QBEL p:P39 [
+  ps:P39 wd:Q30185 ;
+  pq:P642 wd:Q2288 ;
+  pq:P580 "1991-01-01"^^xsd:date ;
+  pq:P582 "2003-04-01"^^xsd:date
+] .
+
+wd:Q2288 p:P6 [
+  ps:P6 wd:QBEL ;
+  pq:P580 "1991-01-01"^^xsd:date ;
+  pq:P582 "2003-04-01"^^xsd:date
+] .
+</div>
+
+<p>Similar RDF triples were generated for:</p>
+<ul>
+  <li>Oleg Lebedev (2001–2008)</li>
+  <li>Vladimir Babichev (2009 ceremonial)</li>
+  <li>Vasily Toloko (2009–2011)</li>
+  <li>Valery Pavlov (2012–2014?)</li>
+  <li>Yury Timofeev (2014–2016)</li>
+  <li>Alexey Ogonkov (2017–present)</li>
+</ul>
+
+<p>Each entry followed the same RDF structure using <code>P39</code> and <code>P6</code> properties, allowing for structured enrichment of Wikidata.</p>
+
+<p>🔗 Gemini Share: <a href="https://gemini.google.com/share/c22eba7d743b" target="_blank">View Prompt</a></p>
+
+
   </main>
 
   <footer>
