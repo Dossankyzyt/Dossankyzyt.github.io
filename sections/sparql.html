@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenges – Enriching Wikidata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #e0e0e0;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      background-color: #e0e0e0;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🧪 Steps: SPARQL-queries, prompting and RDF triples</h1>
+    <nav>
+      <ul>
+       <a href="https://dossankyzyt.github.io/index.html">
+  <button style="padding: 10px 20px; font-size: 16px; border-radius: 8px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+    🏠 Home
+  </button>
+</a>
+
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>🧪 Case Study 1: Tver (Q2288) — Rivers - Geographic Overview</h2>
+      <p>Tver is a city known to be located near three rivers:</p>
+      <ul>
+        <li>Volga</li>
+        <li>Tvertsa</li>
+        <li>Tmaka</li>
+      </ul>
+      <p>Wikidata currently only includes limited body of water links via property <strong>P206</strong>.</p>
+    </section>
+
+    <section>
+      <h2>🔍 SPARQL Check</h2>
+      <p><strong>Tver’s Location Relative to Water Bodies (Wikidata P206):</strong></p>
+      <ul>
+        <li>Using Wikidata property P206, we identify bodies of water Tver (Q2288) is located in or next to.</li>
+        <li>A SPARQL query retrieves these water bodies linked to Tver.</li>
+        <li>This helps understand Tver’s geographic and environmental context.</li>
+      </ul>
+      <p>
+        <strong>SPARQL query:</strong> 
+        <a href="https://w.wiki/Eb9V" target="_blank">https://w.wiki/Eb9V</a><br />
+        <strong>Result:</strong> 
+        <a href="https://w.wiki/Eb9X" target="_blank">https://w.wiki/Eb9X</a>
+      </p>
+      <p>Returns: [Only Volga River or one other]</p>
+    </section>
+
+    <section>
+      <h2>🤖 LLM Cross-Validation</h2>
+      <p>We used LLMs to check what bodies of water Tver is located on:</p>
+      <ul>
+        <li>Zero-shot prompting with Gemini: <a href="https://g.co/gemini/share/6516e94fdd5b" target="_blank">View Result</a></li>
+<img src="gemini1.png" alt="Gemini SPARQL output" width="500">
+
+        <li>ChatGPT: returned the same answer (Volga, Tvertsa, Tmaka)</li>
+      </ul>
+      <img src="gpt1.png" alt="Generated RDF triple by GPT" width="500" />
+      <p><strong>Missing:</strong> Tvertsa and Tmaka — despite being geographically significant.</p>
+    </section>
+
+    <section>
+      <h2>🧠 SPARQL QID Validation</h2>
+      <p>We used SPARQL queries to check if the rivers are on Wikidata and to find their QIDs:</p>
+      <ul>
+        <li><strong>1. Tvertsa</strong>
+          <ul>
+            <li>Query: <a href="https://w.wiki/EbAx" target="_blank">https://w.wiki/EbAx</a></li>
+            <li>Result: <a href="https://w.wiki/EbB2" target="_blank">https://w.wiki/EbB2</a></li>
+          </ul>
+        </li>
+        <li><strong>2. Tmaka</strong>
+          <ul>
+            <li>Query: <a href="https://w.wiki/EbB7" target="_blank">https://w.wiki/EbB7</a></li>
+            <li>Result: <a href="https://w.wiki/EbBA" target="_blank">https://w.wiki/EbBA</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Result:</strong></p>
+      <ul>
+        <li>Tvertsa River → <code>Q671890</code></li>
+        <li>Tmaka River → <code>Q4467262</code></li>
+      </ul>
+      <p>Both rivers are properly classified as <code>instance of river (Q4022)</code>.</p>
+    </section>
+
+    <section>
+      <h2>🔧 RDF Triple Generation with LLMs</h2>
+      <h3>1. Tvertsa</h3>
+      <ul>
+        <li>Gemini returned a wrong QID: <code>Q2378</code> instead of <code>Q2288</code></li>
+        <li>We confirmed the correct QID through Wikidata</li>
+        <li>Prompted Gemini to regenerate the RDF triple</li>
+        <li><a href="https://g.co/gemini/share/996607810f77" target="_blank">Gemini triple</a></li>
+        <li>ChatGPT generated an accurate triple without error</li>
+        <img src="gpt2.png" alt="Generated RDF triple by GPT" width="500" />
+      </ul>
+
+      <h3>2. Tmaka</h3>
+      <ul>
+        <li>Both ChatGPT and Gemini returned the same (correct) triple</li>
+ <img src="gpt3.png" alt="Generated RDF triple by GPT" width="500" />
+ <img src="gemini3.png" alt="Generated RDF triple by GPT" width="500" />
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Outcome</h2>
+      <ul>
+        <li>Discovered that Tver lacks full P206 relationships</li>
+        <li>Proposed enrichment: add
+          <ul>
+            <li>Tvertsa River → <code>P206 → Q671890</code></li>
+            <li>Tmaka River → <code>P206 → Q4467262</code></li>
+          </ul>
+        </li>
+        <li>Demonstrated a repeatable method for improving Wikidata’s coverage</li>
+        <li>Queried and validated relevant river entities</li>
+        <li>Enriched the graph using RDF and Wikidata standards</li>
+        <li>Contributed to the broader goal of open knowledge quality</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      GitHub Repository: 
+      <a href="https://github.com/Dossankyzyt/Dossankyzyt.github.io/tree/main" target="_blank">View Project on GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>
