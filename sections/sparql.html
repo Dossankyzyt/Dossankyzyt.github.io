@@ -109,20 +109,20 @@
 
     <section>
       <h2>🤖 LLM Cross-Validation</h2>
-      <p>We used LLMs to check what bodies of water Tver is located on:</p>
+      <p>We used LLMs and zero-shot prompting technique to check what bodies of water Tver is located on:</p>
       <ul>
-        <li>Zero-shot prompting with Gemini: <a href="https://g.co/gemini/share/6516e94fdd5b" target="_blank">View Result</a></li>
+        <li>Gemini: <a href="https://g.co/gemini/share/6516e94fdd5b" target="_blank">View Result</a></li>
 <img src="gemini1.png" alt="Gemini SPARQL output" width="500">
 
         <li>ChatGPT: returned the same answer (Volga, Tvertsa, Tmaka)</li>
       </ul>
-      <img src="gpt1.png" alt="Generated RDF triple by GPT" width="500" />
+      <img src="gpt1.png" alt="GPT" width="500" />
       <p><strong>Missing:</strong> Tvertsa and Tmaka — despite being geographically significant.</p>
     </section>
 
     <section>
       <h2>🧠 SPARQL QID Validation</h2>
-      <p>We used SPARQL queries with keywords FILTER, REGEX and LIMIT to check if the rivers are on Wikidata and to find their QIDs:</p>
+      <p>We used SPARQL queries with keywords FILTER, REGEX and LIMIT to search rivers by their names, to check if they are on Wikidata and to find their QIDs:</p>
       <ul>
         <li><strong>1. Tvertsa</strong>
           <ul>
@@ -190,7 +190,8 @@
   <li>Direct <strong>head of government (P6)</strong> relationships linked to Tver.</li>
   <li><strong>Position held (P39)</strong> relationships where the role is a subclass of mayor (Q30185) and restricted to the location Tver (P642).</li>
 </ol>
-<p>SPARQL Queries:</p>
+<p>SPARQL Queries: we crafted a SPARQL query containing DISTINCT, OPTIONAL, UNION, FILTER, ORDER BY, LIMIT to extract names of mayors of Tver and start and end dates if their terms.</p>
+    <img src="sparql1.png" alt="query using DISTINCT, OPTIONAL, UNION, FILTER, ORDER BY, LIMIT" width="500" />
 <ul>
   <li><a href="https://w.wiki/EaDc" target="_blank">Query 1</a></li>
   <li><a href="https://w.wiki/EaDf" target="_blank">Query 2</a></li>
