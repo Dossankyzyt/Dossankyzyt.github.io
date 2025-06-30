@@ -122,7 +122,7 @@
 
     <section>
       <h2>🧠 SPARQL QID Validation</h2>
-      <p>We used SPARQL queries to check if the rivers are on Wikidata and to find their QIDs:</p>
+      <p>We used SPARQL queries with keywords FILTER, REGEX and LIMIT to check if the rivers are on Wikidata and to find their QIDs:</p>
       <ul>
         <li><strong>1. Tvertsa</strong>
           <ul>
@@ -147,7 +147,7 @@
 
     <section>
       <h2>🔧 RDF Triple Generation with LLMs</h2>
-      <h3>1. Tvertsa</h3>
+      <h3>1. Tvertsa - zero-shot prompting</h3>
       <ul>
         <li>Gemini returned a wrong QID: <code>Q2378</code> instead of <code>Q2288</code></li>
         <li>We confirmed the correct QID through Wikidata</li>
@@ -157,7 +157,7 @@
         <img src="gpt2.png" alt="Generated RDF triple by GPT" width="500" />
       </ul>
 
-      <h3>2. Tmaka</h3>
+      <h3>2. Tmaka - zero-shot prompting</h3>
       <ul>
         <li>Both ChatGPT and Gemini returned the same (correct) triple</li>
  <img src="gpt3.png" alt="Generated RDF triple by GPT" width="500" />
