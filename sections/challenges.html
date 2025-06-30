@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenges – Enriching Wikidata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #e0e0e0;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      background-color: #e0e0e0;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Challenges Faced</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="topic.html">Topic</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="steps.html">Steps</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>🤖 1. Incorrect Suggestions from LLMs</h2>
+      <p>
+        Large Language Models like ChatGPT and Gemini were instrumental in generating ideas and RDF triples, but they sometimes returned:
+      </p>
+      <ul>
+        <li>Incorrect QIDs — for example, Gemini suggested <strong>Q2378</strong> instead of the correct <strong>Q2288</strong> for Tver.</li>
+      </ul>
+      <p>
+        We resolved these issues by double-checking with Wikidata and prompting the models to regenerate correct triples.
+        <br />
+        👉 Example correction:
+        <a href="https://g.co/gemini/share/996607810f77" target="_blank">Gemini prompt with corrected QID</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>📉 2. Incomplete or Inconsistent Data in Wikidata</h2>
+      <p>
+        Wikidata’s crowdsourced nature means some entries are more complete than others. In Tver’s case:
+      </p>
+      <ul>
+        <li>Only the Volga River was linked via <code>P206</code>, while the Tvertsa and Tmaka rivers were omitted.</li>
+        <li>Several mayors were missing or inconsistently documented.</li>
+      </ul>
+      <p>
+        To address these, we validated river and person QIDs, used temporary placeholders in RDF drafts, and manually reviewed entries.
+      </p>
+    </section>
+
+    <section>
+      <h2>🧠 3. SPARQL Learning Curve</h2>
+      <p>
+        SPARQL querying was new for us. We had to understand the graph structure, learn about properties like <code>P206</code>, <code>P6</code>, and <code>P39</code>, and experiment with <code>FILTER</code> and <code>REGEX</code> clauses. Though challenging, it sharpened our understanding of structured query logic.
+      </p>
+    </section>
+
+    <section>
+      <h2>🌐 4. First-Time Website Deployment</h2>
+      <p>
+        This was our first time using HTML and GitHub Pages. We faced hurdles with:
+      </p>
+      <ul>
+        <li>Folder and file organization (e.g., ensuring links like <code>../style.css</code> worked).</li>
+        <li>Relative paths between navigation links and sections.</li>
+      </ul>
+      <p>
+        Overcoming these helped us build a functional, multi-page static site—a useful technical milestone!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      GitHub Repository: 
+      <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">View Project on GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>
